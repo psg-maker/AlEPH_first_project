@@ -1,0 +1,24 @@
+#passkey-area { margin-top: 30px; padding-top: 24px; border-top: 2px solid var(--line); }
+#passkey-area [hidden] { display: none !important; }
+.pk-intro { display: flex; justify-content: space-between; align-items: center; gap: 18px; }
+.pk-intro h2 { font-size: 26px; margin-bottom: 5px; }
+.pk-intro p, .pk-help, .pk-key p { font-size: 13px; color: var(--muted); }
+.pk-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+.pk-button { background: var(--green); color: var(--paper); border: 1px solid var(--green); padding: 10px 16px; border-radius: 3px; font: inherit; font-size: 14px; cursor: pointer; }
+.pk-secondary { color: var(--ink); background: var(--paper); border-color: var(--line); }
+.pk-button:disabled { opacity: .5; cursor: default; }
+.pk-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin: 18px 0; }
+.pk-panel { background: var(--paper); border: 1px solid var(--line); padding: 20px; border-radius: 3px; }
+.pk-panel h3 { margin-bottom: 12px; }
+.pk-field { display: block; margin-bottom: 12px; font-size: 13px; font-weight: bold; }
+.pk-field input { display: block; width: 100%; margin-top: 5px; padding: 9px 10px; border: 1px solid var(--line); background: var(--paper); color: var(--ink); border-radius: 3px; font: inherit; font-weight: normal; }
+.pk-field input:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.pk-key { display: flex; align-items: center; justify-content: space-between; gap: 14px; padding: 13px 0; border-bottom: 1px solid var(--line); }
+.pk-key p { margin: 4px 0 0; }
+#pk-keys { list-style: none; padding: 0; margin: 0; }
+#pk-message { min-height: 24px; margin: 12px 0; font-size: 14px; color: var(--green); }
+#pk-message.pk-error { color: var(--accent); }
+#pk-locked { padding: 22px; border: 1px dashed var(--line); color: var(--muted); }
+#pk-development { color: var(--accent); font-size: 13px; }
+@media(max-width:850px) { .pk-layout { grid-template-columns: 1fr; } .pk-intro { align-items: flex-start; flex-direction: column; } }
+@media print { #passkey-area { display: none; } }

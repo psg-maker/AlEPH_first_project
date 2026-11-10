@@ -189,6 +189,8 @@ footer a,footer button{font-size:12px}
   .lower{grid-template-columns:1fr 1fr}
 }
 </style>
+<link rel="stylesheet" href="/passkeys.css">
+<script src="/passkeys.js" defer></script>
 </head>
 <body>
 <a class="skip" href="#main">본문으로 건너뛰기</a>
@@ -287,6 +289,36 @@ footer a,footer button{font-size:12px}
     <span>배움을 제 언어로 설명하고, 첫 IT 직군을 구체화하는 중입니다.</span>
   </div>
 </section>
+
+<section id="passkey-area" aria-labelledby="pk-title">
+  <div class="pk-intro">
+    <div><p class="eyebrow">PRIVATE / 나만의 공간</p><h2 id="pk-title">나만의 기록</h2>
+    <p id="pk-state">패스키로 본인만 열 수 있는 비공개 공간입니다.</p></div>
+    <div class="pk-actions"><button id="pk-login" class="pk-button" type="button">패스키 로그인</button>
+    <button id="pk-logout" class="pk-button pk-secondary" type="button" hidden>로그아웃</button></div>
+  </div>
+  <p id="pk-development" hidden>개발 확인용 주소입니다. 실제 사용을 위한 패스키는 배포 주소에서 등록해 주세요.</p>
+  <p id="pk-message" role="status" aria-live="polite"></p>
+  <div id="pk-locked">아직 잠겨 있습니다. 로그인하면 본인의 기록을 불러옵니다.</div>
+  <div id="pk-private" class="cards"></div>
+  <div class="pk-layout">
+    <form id="pk-register-form" class="pk-panel">
+      <h3>패스키 등록</h3>
+      <label id="pk-name-row" class="pk-field">계정 표시 이름<input id="pk-name" maxlength="80" required autocomplete="nickname"></label>
+      <label class="pk-field">패스키 이름<input id="pk-key-name" maxlength="100" placeholder="예: 집 PC" required></label>
+      <label class="pk-field">저장 위치 메모<input id="pk-provider" maxlength="200" placeholder="예: Google 비밀번호 관리자"></label>
+      <button id="pk-register" class="pk-button" type="submit">첫 패스키 등록</button>
+      <p class="pk-help">이미 계정이 있다면 먼저 로그인한 뒤 패스키를 추가해 주세요. 로그아웃 상태의 첫 등록은 새 계정을 만듭니다.</p>
+    </form>
+    <div class="pk-panel">
+      <div id="pk-manage" hidden><h3>등록한 패스키</h3><ul id="pk-keys"></ul>
+      <p class="pk-help">다른 인증기에 두 번째 패스키를 등록하면 분실에 대비할 수 있습니다. 마지막 패스키는 삭제할 수 없습니다.</p></div>
+      <h3>패스키를 찾을 수 없나요?</h3>
+      <p class="pk-help">사용할 수 있는 패스키를 확인해 주세요. 다른 기기 또는 비밀번호 관리자에 저장한 패스키로 다시 시도할 수 있습니다. 등록된 패스키를 모두 분실했다면 이 서비스에서는 계정을 복구할 수 없습니다.</p>
+    </div>
+  </div>
+</section>
+
 </main>
 
 <footer>
@@ -350,16 +382,7 @@ window.addEventListener('afterprint',()=>printState.forEach(([d,open])=>d.open=o
 
 
 document.getElementById('download-html').addEventListener('click',()=>{
-  const source='<!doctype html>\n'+document.documentElement.outerHTML;
-  const blob=new Blob([source],{type:'text/html;charset=utf-8'});
-  const url=URL.createObjectURL(blob);
-  const a=document.createElement('a');
-  a.href=url;
-  a.download='park_seonggeun_week1_self_intro.html';
-  document.body.appendChild(a);
-  a.click();
-  a.remove();
-  URL.revokeObjectURL(url);
+  window.open('https://github.com/psg-maker/AlEPH_first_project/tree/aleph_eight_project', '_blank', 'noopener');
 });
 </script>
 </body>

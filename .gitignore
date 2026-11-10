@@ -1,0 +1,15 @@
+# env block
+
+*.env
+*.env.local
+.venv
+
+# ALEPH 8 local files
+.env
+.env.*
+!.env.example
+.venv/
+__pycache__/
+*.py[cod]
+.vercel/
+.aleph8-backup-*/
