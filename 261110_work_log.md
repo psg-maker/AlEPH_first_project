@@ -139,3 +139,18 @@ python -m unittest discover -v
 python -m uvicorn main:app --reload
 ```
 
+### Vercel 배포 및 패스키 설정에서 배운 점
+
+- 첫 배포는 main 브랜치를 가져왔고, 해당 브랜치에는 FastAPI 실행 파일이 없어 FASTAPI_ENTRYPOINT_NOT_FOUND 오류가 발생했다.
+- 에러코드를 읽어보니 main branch인 1번째 과제 branch를 읽고 있어 FastAPI 실행파일을 읽지 못한 것을 확인했다
+- 배포 대상을 aleph_eight_project로 변경하면서 Branch Tracking도 반영되는 것을 확인했다.
+- Root Directory는 저장소 내부 폴더 위치이며, Git 브랜치 이름과는 별개의 설정이다.
+- 로컬 .env.local의 환경변수는 Vercel에 별도로 등록해야 한다.
+- 환경변수 변경 후에는 재배포해야 적용된다.
+- 패스키의 RP ID에는 도메인만, ORIGIN에는 https://를 포함한 정확한 사이트 주소를 설정했다.
+
+첫 패스키 생성하면서 로그인이 되어야하는데 되지 않았었다.
+구글 계정 확인 단계에서 휴대폰 인증 후 재시도하니 PC PIN 인증 후, 패스키 등록이 되었었음.
+
+### 남은 것
+- 학원 PC에서 두번째 패스키를 만들고 남은 검증 사항 확인 절차를 진행할 것.
